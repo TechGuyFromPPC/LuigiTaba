@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luigi’s Final Cut | Artisanal Chef Knives</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-banner">
+        <div class="logo-container">
+            <a href="#" class="logo-link" onclick="showHome()">
+                <img src="logo.jpg" alt="Logo" id="main-logo">
+                <div id="logo-text">
+                    <span class="first-name">Luigi's</span>
+                    <span class="last-name">Final Cut</span>
+                </div>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div id="home-view">
+            <section class="hero-intro">
+                <h1>Curated for performance.</h1>
+                <p>Hand-selected by Luigi for the professional kitchen.</p>
+            </section>
+
+            <section class="brand-selection">
+                <h2>Select a Maker</h2>
+                <div id="brand-grid">
+                    <div class="brand-card brand-shun" onclick="loadKnivesByBrand('Shun')">
+                        <h3>Shun</h3>
+                        <p>Japanese Tradition</p>
+                    </div>
+                    <div class="brand-card brand-miyabi" onclick="loadKnivesByBrand('Miyabi')">
+                        <h3>Miyabi</h3>
+                    </div>
+                    <div class="brand-card brand-wusthof" onclick="loadKnivesByBrand('Wüsthof')">
+                        <h3>Wüsthof</h3>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section id="knife-display" class="hidden">
+            <button class="btn-back" onclick="showHome()">← Back to Brands</button>
+            <h2 id="current-brand-header"></h2>
+            <div id="knife-grid">
+                </div>
+        </section>
+
+       <section id="product-page" class="hidden">
+    <button class="btn-back" onclick="backToCollection()">← Back to Collection</button>
+    
+    <div class="product-container">
+        <div class="product-image-box">
+            <img src="" id="main-product-img" alt="Knife View">
+        </div>
+        <div class="product-details">
+            <h1 id="p-name">Knife Name</h1>
+            <p class="p-price">$249.00</p>
+            <p id="p-desc">Full description goes here...</p>
+            
+            <div class="specs-box">
+                <p id="p-specs"></p>
+            </div>
+
+         <button class="buy-btn-large" onclick="openConfirmModal()">Add to Cart</button>
+        </div>
+    </div>
+</section>
+
+
+<section id="inventory-page" class="hidden">
+    <button class="btn-back" onclick="showHome()">← Back to Store</button>
+    <h1 style="margin-bottom: 30px;">Your Inventory</h1>
+    <div id="inventory-list" style="max-width: 600px; margin: 0 auto; text-align: left;">
+        </div>
+    <div style="margin-top: 30px; border-top: 1px solid #444; padding-top: 20px;">
+        <h3>Total: <span id="inventory-total">Php 0</span></h3>
+    </div>
+</section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+<div id="cart-confirm-modal" class="modal-overlay hidden">
+    <div class="modal-content">
+        <h3 id="confirm-msg">Are you sure adding this to your inventory?</h3>
+        <div style="margin-top: 20px; display: flex; gap: 10px; justify-content: center;">
+            <button class="buy-btn" id="confirm-yes" style="background: #27ae60; color: white;">Yes, Add!</button>
+            <button class="buy-btn" onclick="closeConfirmModal()" style="background: #c0392b; color: white;">No, Wait</button>
+        </div>
+    </div>
+</div>
+
+<section id="inventory-page" class="hidden">
+    <button class="btn-back" onclick="showHome()">← Back to Store</button>
+    <h1 style="margin-bottom: 30px;">Your Inventory</h1>
+    <div id="inventory-list" style="max-width: 600px; margin: 0 auto; text-align: left;">
+        </div>
+    <div style="margin-top: 30px; border-top: 1px solid #444; padding-top: 20px;">
+        <h3>Total: <span id="inventory-total">Php 0</span></h3>
+    </div>
+</section>
+</html>

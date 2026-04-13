@@ -1,0 +1,132 @@
+/* Base Setup */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+body { background-color: #121212; color: #e0e0e0; }
+
+/* Header */
+.main-banner { background-color: #000; padding: 1rem 5%; border-bottom: 2px solid #333; position: sticky; top: 0; z-index: 1000; }
+.logo-link { display: flex; align-items: center; text-decoration: none; }
+#main-logo { height: 50px; margin-right: 15px; }
+#logo-text { font-family: 'Georgia', serif; font-size: 1.4rem; text-transform: uppercase; }
+#logo-text .first-name { color: #888; }
+#logo-text .last-name { color: #fff; font-weight: 800; margin-left: 4px; }
+
+/* Grids */
+.hero-intro { text-align: center; padding: 4rem 10%; background: #1a1a1a; }
+.brand-selection, #knife-display, #product-page { padding: 3rem 5%; text-align: center; }
+#brand-grid, #knife-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 2rem; }
+
+/* Cards */
+.brand-card {
+    background-color: #1e1e1e; padding: 5rem 2rem; border: 1px solid #333;
+    cursor: pointer; transition: 0.3s; background-size: cover; background-position: center;
+}
+.brand-shun { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('knife1.jpg'); }
+.brand-miyabi { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('knife2.jpg'); }
+.brand-wusthof { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('knife3.jpg'); }
+.brand-card:hover { border-color: #fff; transform: translateY(-5px); }
+
+/* Product Page Layout */
+.product-container { display: flex; gap: 50px; text-align: left; margin-top: 30px; flex-wrap: wrap; }
+.product-image-box {
+    flex: 1; /* Takes half the width */
+    min-width: 320px;
+    height: 500px; /* Force the image area to be this tall */
+    overflow: hidden; /* DONT change this, keeps the image "inside" */
+    border: 1px solid #333; /* Optional border for definition */
+}
+#main-product-img {
+    width: 100%; /* Fill the container width */
+    height: 100%; /* Fill the container height */
+    
+    /* CRITICAL: This crops the photo to fill the space without stretching */
+    object-fit: cover; 
+    
+    background: #1e1e1e; /* Color shown while the image loads */
+}
+.product-details { flex: 1; min-width: 300px; }
+.p-price { font-size: 2rem; color: #ff4d4d; margin: 15px 0; }
+.specs-box { background: #1e1e1e; padding: 20px; border-left: 4px solid white; margin: 25px 0; }
+.buy-btn-large { background: white; color: black; border: none; padding: 15px; width: 100%; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+
+/* Utils */
+.btn-back { background: none; border: 1px solid #555; color: #888; padding: 10px 20px; cursor: pointer; margin-bottom: 20px; }
+.hidden { display: none !important; }
+
+/* MOBILE FIXES */
+@media (max-width: 768px) {
+    /* 1. Stack the Product Image and Details on top of each other */
+    .product-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* 2. Make the image box slightly shorter so you don't have to scroll forever */
+    .product-image-box {
+        height: 350px;
+        min-width: 100%;
+    }
+
+    .product-details {
+        min-width: 100%;
+    }
+
+    /* 3. Make the main title a bit smaller so it doesn't wrap weirdly */
+    .product-details h1 {
+        font-size: 2rem;
+    }
+
+    /* 4. Adjust the banner padding for small thumbs */
+    .main-banner {
+        padding: 1rem 3%;
+    }
+
+    #logo-text {
+        font-size: 1rem;
+    }
+}
+
+/* THE MODAL OVERLAY (The dark background) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85); /* Black transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999 !important; /* Makes it stay on top of everything */
+}
+
+/* THE MODAL BOX (The white/dark box in the center) */
+.modal-content {
+    background-color: #222;
+    padding: 30px;
+    border: 2px solid #444;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Ensure buttons inside the modal look good */
+.buy-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.2s;
+}
+
+.buy-btn:hover {
+    transform: scale(1.05);
+}
+
+/* THE HIDDEN CLASS (Crucial) */
+.hidden {
+    display: none !important;
+}
